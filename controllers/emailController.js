@@ -3,25 +3,38 @@ const Email = require("../models/Email");
 
 const baseSendEmail = async (req, res) => {
   try {
-    await sendEmailTo(
-      req.body.emailTo,
-      req.body.actions,
-      req.body.tempPassword
-    );
+    const success = await sendEmailTo({
+      emailTo: req.body.emailTo,
+      actions: req.body.actions,
+      tempPassword: req.body.tempPassword,
+      auth: req.body.auth, // 🔴 مهم
+    });
+
+    if (!success) {
+      return res.status(502).json({
+        success: false,
+        message: "Email service failed",
+      });
+    }
 
     const newEmail = await Email.create({
       to: req.body.emailTo,
       subject: req.body.actions,
     });
 
-    await newEmail.save();
+    return res.status(201).json({
+      success: true,
+      message: "Email sent successfully",
+      data: newEmail,
+    });
 
-    res
-      .status(201)
-      .json({ message: "Email sent successfully", success: true, data: req.body });
   } catch (error) {
     console.error("Error in baseSendEmail:", error);
-    res.status(500).send("Failed to send email");
+
+    return res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
   }
 };
 
