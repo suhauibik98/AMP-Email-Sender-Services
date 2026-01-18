@@ -10,9 +10,9 @@ const authMiddleware = (req, res, next) => {
     }
 
     const decoded = jwt.verify(token, process.env.EMAIL_SERVICE_TOKEN_DECODER);
-    if (decoded.role != "admin") {
-      return res.status(403).json({ message: "Forbidden: Admins only" });
-    }
+    // if (decoded.role != "admin") {
+    //   return res.status(403).json({ message: "Forbidden: Admins only" });
+    // }
     // ✅ لا DB call
     req.user = decoded;
 
