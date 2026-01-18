@@ -19,8 +19,8 @@ const sendEmailTo = async (emailTo, actions, tempPassword) => {
     const actionList = Array.isArray(actions) ? actions : [actions];
 
     // Verify SMTP connection
-    await transporter.verify();
-    console.log("✅ SMTP server is ready to take our messages");
+    // await transporter.verify();
+    // console.log("✅ SMTP server is ready to take our messages");
 
     // Handle different actions
     console.log(actionList);
@@ -201,27 +201,3 @@ Your OTP verification code is: ${otp}
 module.exports = { sendEmailTo };
 
 
-// ============================================
-// USAGE EXAMPLES:
-// ============================================
-
-/*
-// Example 1: Send welcome emailTo with temp password
-await sendEmailTo("user@example.com", "add_new_user", "TempPass123!");
-
-// Example 2: Send OTP
-await sendEmailTo("user@example.com", "send_otp", "123456");
-
-// Example 3: Multiple actions
-await sendEmailTo("user@example.com", ["add_new_user", "send_otp"], "123456");
-
-// Example 4: With error handling
-try {
-  const success = await sendEmailTo("user@example.com", "add_new_user", "Pass123");
-  if (success) {
-    console.log("Email sent!");
-  }
-} catch (error) {
-  console.error("Failed:", error.message);
-}
-*/
