@@ -9,12 +9,10 @@ const baseSendEmail = async (req, res) => {
       req.body.tempPassword
     );
 
-    const newEmail = await Email.create({
+     await Email.create({
       to: req.body.emailTo,
       subject: req.body.actions,
     });
-
-    await newEmail.save();
 
     res
       .status(201)
