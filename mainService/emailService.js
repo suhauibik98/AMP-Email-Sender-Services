@@ -63,7 +63,7 @@ const sendEmailTo = async (emailTo, actions, tempPassword) => {
         from: "AMP Portal",
         to: emailTo,
         subject: "🎉 Welcome to AMP - Your Account Details",
-        text: "hello "
+        text: `"hello " ${tempPassword}`
       };
 
       await transporter.sendMail(mailOptions);
