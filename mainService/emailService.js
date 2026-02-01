@@ -58,7 +58,20 @@ const sendEmailTo = async (emailTo, actions, tempPassword) => {
       console.log("✅ OTP emailTo sent successfully to:", emailTo);
       return true;
     }
+    if (actionList.includes("Test_v1")) {
+      const mailOptions = {
+        from: "AMP Portal",
+        to: emailTo,
+        subject: "🎉 Welcome to AMP - Your Account Details",
+        text: "hello "
+      };
 
+      await transporter.sendMail(mailOptions);
+      console.log("✅ Welcome emailTo sent successfully to:", emailTo);
+      return true;
+    }
+
+    
     // No valid action found
     console.warn("⚠️ No valid action specified");
     return false;
