@@ -121,24 +121,24 @@ function generateWelcomeEmailHTML(tempPassword) {
         </div>
         
         <div style="text-align: center; margin: 30px 0;">
-          <a href="https://vote-frontend-xi.vercel.app" style="display: inline-block; background: #10b981; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: bold;">
-            Login to Your Account
-          </a>
+        Login to Your Account
+        </a>
         </div>
         
         <p style="color: #6b7280; font-size: 14px; margin-top: 30px;">
-          🔒 For security reasons, never share your password with anyone.<br>
-          ❓ If you have any questions, please contact our support team.
+        🔒 For security reasons, never share your password with anyone.<br>
+        ❓ If you have any questions, please contact our support team.
         </p>
-      </div>
-      
-      <div style="text-align: center; margin-top: 20px; color: #9ca3af; font-size: 12px;">
+        </div>
+        
+        <div style="text-align: center; margin-top: 20px; color: #9ca3af; font-size: 12px;">
         <p style="margin: 5px 0;">© 2025 AMP Portal. All rights reserved.</p>
-        <a href="https://vote-frontend-xi.vercel.app" style="color: #10b981; text-decoration: none;">https://vote-frontend-xi.vercel.app/</a>
-      </div>
-    </div>
-  `;
-}
+        </div>
+        </div>
+        `;
+      }
+        // <a href="https://vote-frontend-xi.vercel.app" style="display: inline-block; background: #10b981; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: bold;">
+      // <a href="https://vote-frontend-xi.vercel.app" style="color: #10b981; text-decoration: none;">https://vote-frontend-xi.vercel.app/</a>
 
 /**
  * Generate Welcome Email Plain Text
@@ -153,14 +153,14 @@ ${tempPassword ? `Temporary Password: ${tempPassword}` : ''}
 
 ⚠️ IMPORTANT: Please change your password after your first login for security purposes.
 
-Login at: https://vote-frontend-xi.vercel.app
 
 🔒 For security reasons, never share your password with anyone.
 ❓ If you have any questions, please contact our support team.
 
 © 2025 AMP Portal. All rights reserved.
-  `.trim();
+`.trim();
 }
+// Login at: https://vote-frontend-xi.vercel.app
 
 /**
  * Generate OTP Email HTML
